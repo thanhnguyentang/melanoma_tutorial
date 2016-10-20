@@ -5,10 +5,10 @@
 Follow this instruction [DeepLab](https://bitbucket.org/deeplab/deeplab-public/)
 
 ## 1. Download data and model
-This tutorial uses (Deeplab-largFOV model)[https://arxiv.org/pdf/1412.7062.pdf] to segment lesion
+This tutorial uses [Deeplab-largFOV model](https://arxiv.org/pdf/1412.7062.pdf) to perform lesion segmentation
 
- * Download the pre-train model 'train2_iter_8000.caffemodel' to './weights/' http://ccvl.stat.ucla.edu/deeplab-models/deeplab-largefov/  
- * Download the training data from [https://challenge.kitware.com/#challenge/n/ISBI_2016%3A_Skin_Lesion_Analysis_Towards_Melanoma_Detection] 
+ * Download the pre-train model 'train2_iter_8000.caffemodel' from http://ccvl.stat.ucla.edu/deeplab-models/deeplab-largefov/  to './weights/' 
+ * Download the training data from https://challenge.kitware.com/#challenge/n/ISBI_2016%3A_Skin_Lesion_Analysis_Towards_Melanoma_Detection
 
 ## 2. Prepare training data 
 ```./notebooks/prepare_data.ipynb```  
