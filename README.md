@@ -13,11 +13,12 @@ This tutorial uses [Deeplab-largFOV model](https://arxiv.org/pdf/1412.7062.pdf) 
 ## 2. Prepare training data   
 `./notebooks/prepare_data.ipynb`
 
-## 3. Pre-train the model  
-### Finetuning  
+## 3. Pre-train the model   
+
+* Finetuning  
 `$ ./finetune_run.sh & tail -f ./logs/finetune_tutorial.log`
 
-### Full training  
+* Full training  
 `$ ./fulltrain_run.sh & tail -f ./logs/full_train_tutorial.log` 
 
 ## 4. Evaluation    
