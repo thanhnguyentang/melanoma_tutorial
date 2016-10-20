@@ -2,7 +2,7 @@
 
 ## 0. Install DeepLab:
 
-Follow this instruction (DeepLab)[https://bitbucket.org/deeplab/deeplab-public/]
+Follow this instruction [DeepLab](https://bitbucket.org/deeplab/deeplab-public/)
 
 ## 1. Download data and model
 This tutorial uses (Deeplab-largFOV model)[https://arxiv.org/pdf/1412.7062.pdf] to segment lesion
