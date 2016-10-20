@@ -1,0 +1,95 @@
+# VGG 16-layer network convolutional finetuning
+# Network modified to have smaller receptive field (128 pixels)
+# and smaller stride (8 pixels) when run in convolutional mode.
+#
+# In this model we also change max pooling size in the first 4 layers
+# from 2 to 3 while retaining stride = 2
+# which makes it easier to exactly align responses at different layers.
+#
+name: "deeplab_crf"
+
+
+input: "data"
+input_dim: 1
+input_dim: 3
+input_dim: 500
+input_dim: 500
+
+#layers {
+#  name: "data"
+#  type: DUMMY_DATA
+#  top: "data"
+#  dummy_data_param {
+#num:1
+#channels:3
+#height:450
+#width:450 
+
+#data_filler { type: 'gaussian'}
+#}
+#  include: { phase: TRAIN }
+#}
+
+layers {
+  name: "data_dim"
+  type: DUMMY_DATA
+  top: "data_dim"
+  dummy_data_param {
+    num:1
+    channels:1
+    height:1
+    width:2 
+    data_filler { type: 'constant'  value: 500}
+}
+  include: { phase: TRAIN }
+}
+
+layers {
+  name: "fc8_interp"
+  type: DATA
+  top: "fc8_interp"
+  #top: "label"
+  data_param {
+    #root_folder: "/home/vladimir/Downloads/VOCdevkit/VOC2012"
+    source: "/home/liecos/baxter/lmdb/train_lmdb"
+    #label_type: PIXEL
+    backend: LMDB
+    batch_size: 1
+    #shuffle: true
+  }
+  transform_param {
+    #mean_value: 104.008
+    #mean_value: 116.669
+    #mean_value: 122.675
+    #crop_size: 321
+    #mirror: true
+  }
+  include: { phase: TRAIN }
+}
+
+# JAY EDIT THIS LAYER
+layers {
+  bottom: "fc8_interp"
+  bottom: "data_dim"
+  bottom: "data"
+  top: "crf_inf"
+  name: "crf_interp"
+  type: DENSE_CRF
+  dense_crf_param { 
+    max_iter: 10
+    pos_w: POS_W
+    pos_xy_std: POS_XY_STD
+    bi_w: BI_W
+    bi_xy_std: BI_XY_STD
+    bi_rgb_std: BI_RGB_STD
+  }
+#  include: { phase: TEST }
+}
+
+#layers {
+#   bottom: "label"
+#   name: "silence"
+#   type: SILENCE
+#   include: { phase: TEST }
+#}
+

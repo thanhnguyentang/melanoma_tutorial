@@ -1,0 +1,20 @@
+net: "/home/thanhnt/melanoma_tutorial/model_prototxt/full_training.prototxt"
+test_iter: 90
+# make test net, but don't invoke it from the solver itself
+test_interval: 900
+display: 90
+average_loss: 90
+lr_policy: "step"
+gamma: 0.1
+stepsize: 2700
+# lr for unnormalized softmax -- see train_val definition
+base_lr: 1e-4
+# high momentum
+momentum: 0.9
+# no gradient accumulation
+#iter_size: 1
+max_iter: 9000 
+weight_decay: 0.0005
+snapshot: 900
+snapshot_prefix: "/home/thanhnt/melanoma_tutorial/weights/snapshots/full"
+test_initialization: true

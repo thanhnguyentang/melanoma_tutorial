@@ -1,0 +1,3 @@
+./plot_training_log.py 6 /home/thanhnt/melanoma_tutorial/logs/plots/train_loss_vs_iters.png /home/thanhnt/melanoma_tutorial/logs/finetune_tutorial.log
+
+
