@@ -1,7 +1,7 @@
 # Tutorial on Lesion Segmentation using Caffe
 The result submitted to [ISBI 2016: Skin Lesion Analysis Towards Melanoma Detection](https://challenge.kitware.com/#challenge/560d7856cad3a57cfde481ba) is available [here](https://challenge.kitware.com/#phase/566744dccad3a56fac786787)
 
-Ranked 8th in Melanoma Segmentation and 1st in Lesion Dermoscopic Feature Segmentation
+Ranked 8th in Melanoma Segmentation and 1st in [Lesion Dermoscopic Feature Segmentation](https://challenge.kitware.com/#phase/56fc26f7cad3a54f8bb80e4c) 
 
 ## 0. Install DeepLab:
 
